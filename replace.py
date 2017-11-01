@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys
+import sys, re
 from utilities import *
 
 print("replace image tags")
@@ -42,5 +42,5 @@ def replace_image_tag(html, path=None):
   return html
 
 filepaths = listfile(dirpath)
-html_filepaths = [f for f in filepaths if f.endswith('.html.erb')]
+html_filepaths = [f for f in filepaths if re.has('\.html.*\.erb$', f)]
 replace_file(html_filepaths, replace_image_tag)

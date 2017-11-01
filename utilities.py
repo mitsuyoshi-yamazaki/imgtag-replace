@@ -9,6 +9,10 @@ def find(pattern, string):
   return result[0]
 setattr(re, 'find', find)
 
+def has(pattern, string):
+  return re.find(pattern, string) is not None
+setattr(re, 'has', has)
+
 def listfile(path):
   from os.path import isfile, join
   import operator
